@@ -4,16 +4,17 @@ import Timer from './Timer'
 export const Home = (props) => {
     const [counter, setCounter] = useState(60)
     const [start, setStart] = useState(false)
-
-    useEffect(() => {
-        const timer =
-            counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-        return () => clearInterval(timer);
-    }, [counter])
+    const [timerButton, setTimerButton] = useState("start")
 
     const startTimer = () => {
         console.log("hi")
         setStart(true)
+        setTimerButton("stop")
+    }
+
+    const stopTimer = () => {
+        setStart(false)
+        setTimerButton("start")
     }
 
     // const timer = () => {
@@ -33,7 +34,7 @@ export const Home = (props) => {
 
     return(<>
         {start ? <><h1>Time Remaining: {counter}</h1><Timer setCounter={setCounter} counter={counter}/></> : <h1>Click to Start Your Timer!</h1>}
-        <button onClick={startTimer}>Start Timer</button>
+        {timerButton === "start" ? <button onClick={startTimer}>Start Timer</button> : <button onClick={stopTimer}>Stop Timer</button>}
     </>)
 }
 
