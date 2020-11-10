@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Timer from './Timer'
 
 export const Home = (props) => {
-    const [counter, setCounter] = useState(65)
+    const [counter, setCounter] = useState(1500)
     const [start, setStart] = useState(false)
     const [timerButton, setTimerButton] = useState("start")
     const [justReset, setJustReset] = useState(false)
@@ -19,15 +19,15 @@ export const Home = (props) => {
     }
 
     const resetTimer = () => {
-        setCounter(65)
+        setCounter(1500)
         setTimerButton("start")
         setJustReset(true)
     }
 
     const renderButtons = () => {
-        if (timerButton === "start" && counter < 65 && justReset === false) {
+        if (timerButton === "start" && counter < 1500 && justReset === false) {
            return <><button onClick={startTimer}>Start Timer</button><button onClick={resetTimer}>Reset</button></>
-        } else if (timerButton === "start" && counter === 65){
+        } else if (timerButton === "start" && counter === 1500){
            return <button onClick={startTimer}>Start Timer</button>
         } else {
             return <><button onClick={stopTimer}>Stop Timer</button><button onClick={resetTimer}>Reset</button></>
