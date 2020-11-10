@@ -50,7 +50,7 @@ export const Home = (props) => {
     // }
 
     return(<>
-        {start ? <><h1>Time Remaining: {counter}</h1><Timer setCounter={setCounter} counter={counter}/></> : <h1>Click to Start Your Timer!</h1>}
+        {start ? <><h1>Time Remaining </h1><Timer setCounter={setCounter} counter={counter}/></> : <h1>Click to Start Your Timer!</h1>}
         {/* {timerButton === "start" ? <><button onClick={startTimer}>Start Timer</button><button onClick={resetTimer}>Reset</button></> : <><button onClick={stopTimer}>Stop Timer</button><button onClick={resetTimer}>Reset</button></>} */}
         {renderButtons()}
     </>)
