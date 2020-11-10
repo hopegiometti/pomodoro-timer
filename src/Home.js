@@ -18,9 +18,18 @@ export const Home = (props) => {
     }
 
     const resetTimer = () => {
-        setStart(false)
         setCounter(60)
         setTimerButton("start")
+    }
+
+    const renderButtons = () => {
+        if (timerButton === "start" && counter < 60) {
+           return <><button onClick={startTimer}>Start Timer</button><button onClick={resetTimer}>Reset</button></>
+        } else if (timerButton === "start" && counter === 60){
+           return <button onClick={startTimer}>Start Timer</button>
+        } else {
+            return <><button onClick={stopTimer}>Stop Timer</button><button onClick={resetTimer}>Reset</button></>
+        }
     }
 
     // const timer = () => {
@@ -40,7 +49,8 @@ export const Home = (props) => {
 
     return(<>
         {start ? <><h1>Time Remaining: {counter}</h1><Timer setCounter={setCounter} counter={counter}/></> : <h1>Click to Start Your Timer!</h1>}
-        {timerButton === "start" ? <><button onClick={startTimer}>Start Timer</button><button onClick={resetTimer}>Reset</button></> : <><button onClick={stopTimer}>Stop Timer</button><button onClick={resetTimer}>Reset</button></>}
+        {/* {timerButton === "start" ? <><button onClick={startTimer}>Start Timer</button><button onClick={resetTimer}>Reset</button></> : <><button onClick={stopTimer}>Stop Timer</button><button onClick={resetTimer}>Reset</button></>} */}
+        {renderButtons()}
     </>)
 }
 
