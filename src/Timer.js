@@ -8,6 +8,7 @@ export const Timer = (props) => {
     }, [props.counter])
 
     return(<>
+        {console.log(props.counter % 60 === 0)}
     </>)
 }
 
